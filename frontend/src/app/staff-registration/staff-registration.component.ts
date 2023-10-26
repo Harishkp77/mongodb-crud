@@ -26,6 +26,7 @@ export class StaffRegistrationComponent {
         console.log('Staff registered successfully:', res);
         data.resetForm();
         this.isSuccess = true;
+        
         setTimeout(() => {
           this.isSuccess = false;
         }, 5000);
@@ -34,10 +35,11 @@ export class StaffRegistrationComponent {
         console.log('staff registered failed', err);
       }
     );
+    
   }
 
 
 
 
-  
+
 }
