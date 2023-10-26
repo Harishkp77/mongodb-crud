@@ -7,7 +7,6 @@ import { StaffService } from '../service/staff.service';
   templateUrl: './staff-registration.component.html',
   styleUrls: ['./staff-registration.component.css'],
 })
-
 export class StaffRegistrationComponent {
   staff = {
     firstName: '',
@@ -16,15 +15,20 @@ export class StaffRegistrationComponent {
     phonenumber: '',
     emailid: '',
   };
+  isSuccess: boolean = false;
 
   constructor(private staffService: StaffService) {}
 
   onSubmit(data: NgForm) {
     this.staff = data.value;
-    // const jsonData = JSON.stringify(this.staff);
     this.staffService.registerStaff(this.staff).subscribe(
       (res) => {
         console.log('Staff registered successfully:', res);
+        data.resetForm();
+        this.isSuccess = true;
+        setTimeout(() => {
+          this.isSuccess = false;
+        }, 5000);
       },
       (err) => {
         console.log('staff registered failed', err);
