@@ -14,7 +14,7 @@ async function insertStaff(apidata) {
 async function readStaff() {
   try {
     const getData = await StaffRegistration.find();
-    console.log('Data read', getData);
+    return getData;
   } catch (err) {
     console.error('Data not read', err);
   }

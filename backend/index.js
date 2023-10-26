@@ -25,11 +25,23 @@ app.post('/api/staff', async (req, res) => {
         await staffController.insertStaff(data);
         res.json({ message: "data received sucessfully" })
     } catch (err) {
-        res.status(500).json({ message: 'Error saving data' });
+        res.status(500).json({ message: 'Error reading data' });
     }
 
 
 })
+
+app.get('/read/staff', async (req, res)=>{
+    try{
+        const getdata= await staffController.readStaff();
+        res.json(getdata);
+    }catch (err) {
+        res.status(500).json({ message: 'Error saving data' });
+    
+    }
+});
+
+
 
 
 app.listen(port, () => {

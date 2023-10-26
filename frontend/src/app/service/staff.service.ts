@@ -11,4 +11,9 @@ export class StaffService {
   registerStaff(staffData: any) {
     return this.http.post(this.apiUrl, staffData);
   }
+
+  getstaff(){
+    return this.http.get('http://localhost:3000/read/staff')
+  }
+
 }
