@@ -1,0 +1,9 @@
+.small-container {
+    max-width: 600px; 
+    margin: 0 auto; 
+  }
+
+  .button-with-margin {
+    margin-top: 10px; 
+  }
+  
