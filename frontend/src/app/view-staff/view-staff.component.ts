@@ -13,7 +13,7 @@ staffData:any;
   ngOnInit() {
     this.staffService.getstaff().subscribe(
       (res:any) => {
-        this.staffData = res;
+        this.staffData = res.reverse();
         console.log(res);
       },
       (err) => {
@@ -22,4 +22,10 @@ staffData:any;
     );
   }
  
+  editStaff(clickedData:any){
+
+  }
+  deleteStaff(clickedData:any){
+
+  }
 }
