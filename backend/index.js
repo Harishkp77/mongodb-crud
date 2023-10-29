@@ -56,6 +56,18 @@ app.post('/update/staff', async (req, res) => {
 )
 
 
+app.post('/delete/staff',async(req,res)=>{
+try{
+    const data = req.body;
+    await staffController.deleteStaff(data);
+    res.json({message:"data deleted successfully"})
+}catch(err){
+    res.status(500).json({message:"Error deleting the data"})
+}
+   
+})
+
+
 app.listen(port, () => {
     console.log(`Express server is running on port ${port}`);
 });

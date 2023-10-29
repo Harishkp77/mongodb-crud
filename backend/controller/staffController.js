@@ -31,8 +31,8 @@ return;
 console.log('Document updated successfully:', updatedStaff);
 }
 
-async function deleteStaff(){
-  let filter = {firstName:'harish'};
+async function deleteStaff(apidata){
+  let filter = {_id:apidata._id};
   const deletedStaff= await StaffRegistration.findOneAndDelete(filter,{},{new:true}
   )
   if(!deletedStaff){

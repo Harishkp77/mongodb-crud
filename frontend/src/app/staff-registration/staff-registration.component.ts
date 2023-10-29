@@ -4,6 +4,7 @@ import {
   Output,
   Input,
   OnChanges,
+  ViewChild,
 } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { StaffService } from '../service/staff.service';
@@ -21,10 +22,11 @@ export class StaffRegistrationComponent implements OnChanges {
     phonenumber: '',
     emailid: '',
   };
+  @ViewChild('myform', { static: false }) clearForm: NgForm | undefined;
 
   isEditMode: boolean = false;
   isSuccess: boolean = false;
-  isUpdateSuccess:boolean= false;
+  isUpdateSuccess: boolean = false;
   @Output() refreshViewStaff: EventEmitter<any> = new EventEmitter<any>();
   @Input('FromParent') receivedStaff: ReceivedStaff | null = null;
 
@@ -55,28 +57,32 @@ export class StaffRegistrationComponent implements OnChanges {
     );
   }
 
+  onUpdate(data: NgForm) {
+    if (this.receivedStaff) {
+      const updatedStaffData = { ...data.value, _id: this.receivedStaff._id };
+      this.staffService.updateStaff(updatedStaffData).subscribe(
+        (res) => {
+          console.log('Staff updated successfully:', res);
+          data.resetForm();
+          this.refreshViewStaff.emit();
+          this.isUpdateSuccess = true;
+          this.isEditMode = false;
 
-onUpdate(data:NgForm){
-  if (this.receivedStaff){
-    const updatedStaffData = { ...data.value, _id: this.receivedStaff._id };
-    this.staffService.updateStaff(updatedStaffData).subscribe((res)=>{
-    console.log('Staff updated successfully:', res);
-    data.resetForm();
-    this.refreshViewStaff.emit();
-    this.isUpdateSuccess = true;
-    this.isEditMode=false;
+          setTimeout(() => {
+            this.isUpdateSuccess = false;
+          }, 3000);
+        },
+        (err) => {
+          console.log('staff registered failed', err);
+        }
+      );
+    }
+  }
 
-    
-    setTimeout(() => {
-      this.isUpdateSuccess = false;
-    }, 3000);
-  
-  },  (err) => {
-    console.log('staff registered failed', err);
-  })
-}
-}
-
+  onCancel() {
+    this.isEditMode = false;
+    this.clearForm!.resetForm();
+  }
 }
 
 export class ReceivedStaff {
