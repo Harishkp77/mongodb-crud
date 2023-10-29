@@ -1,11 +1,11 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row">
-    <div class="col-4">
+    <div class="col-3 container">
       <app-staff-registration (refreshViewStaff)="refresh()" [FromParent]="shiftToTectBox"></app-staff-registration>
     </div>
-    <div class="col-8">
-      <h2 class="text-center">Staff Registered</h2>
+    <div class="col-9">
       <div class="table-container">
+        <h3 class="text-center">Staff Registered</h3>
         <table class="table table-striped">
           <thead>
             <tr>

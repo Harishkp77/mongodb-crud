@@ -1,9 +1,55 @@
-.small-container {
-    max-width: 600px; 
-    margin: 0 auto; 
-  }
 
-  .button-with-margin {
-    margin-top: 10px; 
-  }
-  
+
+/* Style the registration form */
+.registration-form {
+  background-color: #fff; /* Form background color */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  padding: 20px; /* Padding inside the form */
+  text-align: center; /* Center-align text */
+}
+
+/* Style the form title */
+.registration-form h2 {
+  color: #333; /* Title text color */
+  font-size: 24px; /* Title font size */
+  margin-bottom: 20px; /* Spacing below the title */
+}
+
+/* Style the form elements and labels */
+.form-group {
+  margin-bottom: 20px; /* Spacing between form groups */
+  text-align: left; /* Align labels to the left */
+}
+
+label {
+  display: block; /* Display labels as blocks */
+  font-weight: bold; /* Make labels bold */
+  margin-bottom: 5px; /* Spacing below labels */
+}
+
+/* Style the input fields */
+.form-control {
+  width: 100%; /* Full width input fields */
+  padding: 10px; /* Padding inside input fields */
+  border: 1px solid #ccc; /* Add a border */
+  border-radius: 5px; /* Rounded corners for input fields */
+  font-size: 16px; /* Font size for input fields */
+}
+
+/* Style the buttons */
+button {
+  padding: 10px; /* Padding inside buttons */
+  border: none; /* Remove button borders */
+  border-radius: 5px; /* Rounded corners for buttons */
+  font-size: 16px; /* Font size for buttons */
+  cursor: pointer; /* Show pointer cursor on hover */
+  margin-right: 10px; /* Spacing between buttons */
+}
+
+/* Style the success message */
+.success-message {
+  color: #5cb85c; /* Text color for success messages (green) */
+  font-weight: bold; /* Make success messages bold */
+  margin-top: 10px; /* Spacing above success messages */
+}

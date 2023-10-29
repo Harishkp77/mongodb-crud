@@ -1,6 +1,11 @@
-/* styles.css */
+table {
+  width: 100%; /* Full width table */
+  border-collapse: collapse; /* Remove table borders */
+
+}
+
 .table-container {
-    max-height: 600px;
-    overflow-y: auto;
-  }
-  
+  background-color: #fff; /* Table container background color */
+  max-height: 600px; /* Set the maximum height for the table container */
+  overflow-y: auto; /* Enable vertical scrolling */
+}

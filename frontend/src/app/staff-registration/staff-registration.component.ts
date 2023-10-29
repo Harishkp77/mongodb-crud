@@ -32,11 +32,15 @@ export class StaffRegistrationComponent implements OnChanges {
 
   constructor(private staffService: StaffService) {}
 
-  ngOnChanges(changes: any) {
-    if (changes.receivedStaff && this.receivedStaff != null) {
+  ngOnChanges() {
+    if (this.receivedStaff!=null) {
       this.isEditMode = true;
+      console.log("ngOnChanges",this.receivedStaff)
+  
     }
   }
+
+
 
   onSubmit(data: NgForm) {
     this.staff = data.value;
@@ -81,8 +85,11 @@ export class StaffRegistrationComponent implements OnChanges {
 
   onCancel() {
     this.isEditMode = false;
-    this.clearForm!.resetForm();
-  }
+   this.clearForm!.resetForm();
+    }
+
+
+  
 }
 
 export class ReceivedStaff {

@@ -32,7 +32,12 @@ export class ViewStaffComponent implements OnInit {
   }
 
   editStaff(clickedData: {}) {
+    console.log("view edit")
     this.shiftToTectBox = clickedData;
+    console.log(this.shiftToTectBox)
+    this.staffRegisterComponent?.refreshViewStaff.emit()
+   
+       
   }
 
   deleteStaff(clickedData: {}) {
