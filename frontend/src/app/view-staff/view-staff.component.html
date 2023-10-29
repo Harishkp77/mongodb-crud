@@ -1,28 +1,39 @@
 <div class="container">
-  <h2 class="text-center">Staff Registered</h2>
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Age</th>
-        <th>Phone Number</th>
-        <th>Email Address</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let staff of staffData">
-        <td>{{ staff.firstName }}</td>
-        <td>{{ staff.lastName }}</td>
-        <td>{{ staff.age }}</td>
-        <td>{{ staff.phonenumber }}</td>
-        <td>{{ staff.emailid }}</td>
-        <td>
-          <button type="button" class="btn btn-info btn-sm mx-2" (click)="editStaff(staff)">Edit</button>
-          <button type="button" class="btn btn-danger btn-sm" (click)="deleteStaff(staff)">Delete</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="row">
+    <div class="col-4">
+      <app-staff-registration (refreshViewStaff)="refresh()" [FromParent]="shiftToTectBox"></app-staff-registration>
+    </div>
+    <div class="col-8">
+      <h2 class="text-center">Staff Registered</h2>
+      <div class="table-container" >
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>SI.No</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Age</th>
+              <th>Phone Number</th>
+              <th>Email Address</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let staff of staffData; let i = index">
+              <td>{{i+1}}</td>
+              <td>{{ staff.firstName }}</td>
+              <td>{{ staff.lastName }}</td>
+              <td>{{ staff.age }}</td>
+              <td>{{ staff.phonenumber }}</td>
+              <td>{{ staff.emailid }}</td>
+              <td>
+                <button type="button" class="btn btn-info btn-sm mx-2" (click)="editStaff(staffData[i])">Edit</button>
+                <button type="button" class="btn btn-danger btn-sm" (click)="deleteStaff(staff)">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
 </div>
-  

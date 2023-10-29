@@ -20,9 +20,9 @@ async function readStaff() {
   }
 }
 
-async function updateStaff(){
-let filter = {firstName:'harish'};
-const updatedStaff= await StaffRegistration.findOneAndUpdate(filter,{age:'28'},{new:true}
+async function updateStaff(apidata){
+let filter = {_id: apidata._id};
+const updatedStaff= await StaffRegistration.findOneAndUpdate(filter,{$set:apidata},{new:true}
 )
 if(!updatedStaff){
 console.log("not updated",error)

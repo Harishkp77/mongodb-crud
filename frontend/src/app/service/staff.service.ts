@@ -16,4 +16,10 @@ export class StaffService {
     return this.http.get('http://localhost:3000/read/staff')
   }
 
+updateStaff(updateData:any){
+ return this.http.post('http://localhost:3000/update/staff',updateData)
+}
+
+
+
 }

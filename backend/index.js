@@ -41,7 +41,19 @@ app.get('/read/staff', async (req, res)=>{
     }
 });
 
+app.post('/update/staff', async (req, res) => {
+    try {
+        const data = req.body;
+        
+        await staffController.updateStaff(data);
+        res.json({ message: "data received sucessfully" })
+    } catch (err) {
+        res.status(500).json({ message: 'Error reading data' });
+    }
 
+
+}
+)
 
 
 app.listen(port, () => {
